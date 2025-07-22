@@ -25,8 +25,6 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 urllib3.disable_warnings(urllib3.exceptions.ConnectTimeoutError)
 
 parser = argparse.ArgumentParser(description='Solana snapshot finder')
-parser.add_argument('-t', '--threads-count', default=2000, type=int,
-    help='the number of concurrently running threads that check snapshots for rpc nodes')
 parser.add_argument('-r', '--rpc_address',
     default='https://api.mainnet-beta.solana.com', type=str,
     help='RPC address of the node from which the current slot number will be taken\n'
@@ -63,7 +61,7 @@ SPECIFIC_VERSION = args.version
 WILDCARD_VERSION = args.wildcard_version
 MAX_SNAPSHOT_AGE_IN_SLOTS = args.max_snapshot_age
 WITH_PRIVATE_RPC = args.with_private_rpc
-THREADS_COUNT = args.threads_count
+THREADS_COUNT = 2000
 MIN_DOWNLOAD_SPEED_MB = args.min_download_speed
 MAX_DOWNLOAD_SPEED_MB = args.max_download_speed
 SPEED_MEASURE_TIME_SEC = args.measurement_time
